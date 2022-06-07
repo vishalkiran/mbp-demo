@@ -47,6 +47,11 @@ pipeline {
       }
       steps{
         print "Deploy to prod..."
+<<<<<<< HEAD
   }
   }
 }
+=======
+      }
+}
+>>>>>>> e969c4f7db8492968054e5b9448a7d17a296878e
