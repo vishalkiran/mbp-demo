@@ -6,7 +6,7 @@ pipeline{
         branch 'develop'
       }
       steps{
-        echo "maven build......"
+        sh "mvn clean package"
       }
     }
     stage("Sonar Analysis"){
