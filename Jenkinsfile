@@ -6,53 +6,48 @@ pipeline {
   }
 
   stages{
-    stage("Maven build"){
-      when {
-        branch 'develop'
+        stage("Maven build"){
+          when {
+            branch 'develop'
+          }
+          steps{
+            sh "mvn clean package"
+          }
+        }
       }
-      steps{
-        sh "mvn clean package"
-      }
-    }
-  }
 
-  stage("Sonar Analysis"){
-      when {
-        branch 'develop'
+      stage("Sonar Analysis"){
+          when {
+            branch 'develop'
+          }
+          steps{
+            echo "Sonar Analysis"
       }
-      steps{
-        echo "Sonar Analysis"
-  }
 
-  stage("Deploy to dev and test"){
-      when {
-        branch 'develop'
+      stage("Deploy to dev and test"){
+          when {
+            branch 'develop'
+          }
+          steps{
+            echo "Deploy to dev"
+            echo "Deploy to test"
       }
-      steps{
-        echo "Deploy to dev"
-         echo "Deploy to test"
-  }
 
-  stage("Deploy to UAT"){
-      when {
-        branch 'uat'
+      stage("Deploy to UAT"){
+          when {
+            branch 'uat'
+          }
+          steps{
+            print "Deploy to UAT..."
       }
-      steps{
-        print "Deploy to UAT..."
-  }
 
-  stage("Deploy Prod"){
-      when {
-        branch 'master'
-      }
-      steps{
-        print "Deploy to prod..."
-<<<<<<< HEAD
-  }
-  }
-}
-=======
+      stage("Deploy Prod"){
+          when {
+            branch 'master'
+          }
+          steps{
+            print "Deploy to prod..."
+          }
       }
   }
 }
->>>>>>> e969c4f7db8492968054e5b9448a7d17a296878e
