@@ -33,7 +33,7 @@ pipeline{
         echo "deploying to QA....."
       }
     }
-    stage("Deploy To Prod"){
+    stage('Deploy To Prod'){
       when{
         branch 'main'
       }
@@ -42,3 +42,4 @@ pipeline{
       }
     }
   }
+}
